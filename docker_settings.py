@@ -10,3 +10,5 @@ DATABASES = {
         'PORT': '3307',
     }
 }
+
+ALLOWED_HOSTS = ['*']

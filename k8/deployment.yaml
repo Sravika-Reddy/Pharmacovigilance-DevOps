@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pharmacovigilance-deployment
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pharmacovigilance
+
+  template:
+    metadata:
+      labels:
+        app: pharmacovigilance
+
+    spec:
+      containers:
+        - name: pharmacovigilance-container
+          image: pharmacovigilance-app:build-20
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8000
